@@ -50,9 +50,9 @@ permalink: /lecture1/
   <p>Here are the files for this lecture:</p>
 
   <ul class="file-list">
-    <li><a href="/assets/lectures/lecture1/slides.pdf">Slides (pdf)</a></li>
-    <li><a href="/assets/lectures/lecture1/tutorial.zip">Tutorial notebook (zip)</a></li>
-    <li><a href="/assets/lectures/lecture1/exercises.ipynb">Exercises (notebook)</a></li>
+    <li><a href="{{ site.baseurl }}/assets/lectures/lecture1/slides.pdf">Slides (pdf)</a></li>
+    <li><a href="{{ site.baseurl }}/assets/lectures/lecture1/tutorial.zip">Tutorial notebook (zip)</a></li>
+    <li><a href="{{ site.baseurl }}/assets/lectures/lecture1/exercises.ipynb">Exercises (notebook)</a></li>
   </ul>
 </div>
 
