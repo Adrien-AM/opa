@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Lecture 1
 permalink: /lecture1/
 ---
