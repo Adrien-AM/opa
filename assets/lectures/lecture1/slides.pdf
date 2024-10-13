@@ -1,0 +1,143 @@
+\documentclass{beamer}
+\usepackage{hyperref}
+
+\begin{document}
+
+\begin{frame}
+    \title{Intro to Deep Learning}
+    \author{Adrien Aguila-{}-Multner}
+    \institute{ENSEIRB-MATMECA\\3A CISD}
+    \date{\today}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Data}
+    \begin{itemize}
+        \item \textbf{Training Data}: Consists of input-output pairs \((X, Y)\).
+        \item \textbf{Features}: The input variables \(X\) used to make predictions.
+        \item \textbf{Labels}: The output variables \(Y\) that the model aims to predict.
+        \item \textbf{Dataset Splitting}:
+            \begin{itemize}
+                \item \textbf{Training Set}: Used to train the model.
+                \item \textbf{Validation Set}: Used to tune hyperparameters (optional).
+                \item \textbf{Test Set}: Used to evaluate the model's performance.
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Multilayer Perceptron (MLP)}
+    \begin{itemize}
+        \item \textbf{Linear layer}:
+            \begin{equation}
+                \mathbf{y} = \mathbf{Wx} + \mathbf{b}
+            \end{equation}
+        \item \textbf{Activation Functions}:
+            \begin{itemize}
+                \item \textbf{ReLU} (Rectified Linear Unit):
+                    \begin{equation}
+                        \text{ReLU}(\mathbf{x}) = \max(0, \mathbf{x})
+                    \end{equation}
+            \end{itemize}
+
+        \begin{center}
+            \hspace{-1cm}
+            \includegraphics[width=\textwidth]{activations.png}
+        \end{center}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Loss Function}
+    \begin{itemize}
+        \item \textbf{Purpose}: Measures the distance between predicted outputs and true labels.
+        \item \textbf{Common Loss Functions}:
+            \begin{itemize}
+                \item \textbf{Mean Squared Error (MSE)}:
+                    \[
+                        \text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
+                    \]
+                \item \textbf{Cross-Entropy Loss}:
+                    \[
+                        \text{Cross-Entropy} = -\frac{1}{n} \sum_{i=1}^{n} \left( y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right)
+                    \]
+            \end{itemize}
+        \item \textbf{Role in Training}: Guides the optimization process to minimize prediction errors.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Gradient Descent}
+    An optimization algorithm used to minimize the loss function iteratively. \\
+    \textbf{Update Rule}:\\
+    \begin{equation}
+        \theta := \theta - \eta \nabla_\theta \mathcal{L}
+    \end{equation}
+    where:
+    \begin{itemize}
+        \item \(\theta\) are the model parameters.
+        \item \(\eta\) is the learning rate.
+        \item \(\nabla_\theta \mathcal{L}\) is the gradient of the loss with respect to \(\theta\).
+    \end{itemize}
+    \textbf{Variants}: Adam, RMSprop, etc.
+\end{frame}
+
+\begin{frame}{Backpropagation}
+    How to optimize parameters ?
+    \vspace{0.2cm}
+
+    \textbf{Process}:
+        \begin{enumerate}
+            \item \textbf{Forward Pass}: Compute the output and loss
+            \item \textbf{Backward Pass}: Use chain rule to compute the gradients of the loss with respect to each parameter
+            
+            \vspace{0.2cm}
+            \begin{center}
+                \hspace{1cm}
+                \includegraphics[width=0.6\textwidth]{backpropagation.png}
+            \end{center}
+        \item \textbf{Parameter Update}: Apply gradient descent to minimize the loss
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Types of Data}
+    \begin{itemize}
+        \item \textbf{Images}
+            \begin{itemize}
+                \item Represented as pixel matrices
+                \item 3D: [Channels, Height, Width]
+            \end{itemize}
+        \item \textbf{Text}
+            \begin{itemize}
+                \item Represented as sequences of tokens in a vocabulary
+                \item 1D: [Sequence Length]
+            \end{itemize}
+        \item \textbf{Time Series}
+            \begin{itemize}
+                \item Represented as sequences over Time
+                \item 1D: [Time]
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Types of Models}
+    \begin{itemize}
+        \item \textbf{Convolutional Neural Networks (CNNs)}
+            \begin{itemize}
+                \item Mainly used for image data
+                \item \href{https://coolgpu.github.io/coolgpu_blog/assets/images/Conv2d_0p_1s_1inCh.gif}{\underline{Animation}}
+            \end{itemize}
+        \item \textbf{Recurrent Neural Networks (RNNs)}
+            \begin{itemize}
+                \item Designed for sequential data
+            \end{itemize}
+        \item \textbf{Transformers}
+            \begin{itemize}
+                \item Designed for handling long-range dependencies
+                \item Self-attention mechanism:
+                \begin{equation}
+                    \text{Attention}(\mathbf{Q}, \mathbf{K}, \mathbf{V}) = \text{Softmax}\left(\frac{\mathbf{Q}\mathbf{K}^T}{\sqrt{d_\mathbf{K}}}\right)\mathbf{V}
+                \end{equation}
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\end{document}
